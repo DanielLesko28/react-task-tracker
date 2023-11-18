@@ -3,6 +3,10 @@
     grid-template-rows: 150px auto;
 }
 
+.app_header{
+       border-bottom: 1px solid grey;
+}
+
 .app_main{
     display: flex;
     justify-content: space-evenly;
