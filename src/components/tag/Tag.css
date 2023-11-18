@@ -1,0 +1,14 @@
+.tag{
+    background: transparent;
+    border: none;
+    margin: 0 1rem;
+    padding: 5px 8px;
+    border-radius: 10px;
+    text-decoration: underline;
+}
+
+.tag:hover{
+    background-color: darkblue;
+    color: white;
+
+}
