@@ -1,11 +1,17 @@
 import "./App.css"
 import TaskColumn from "./components/taskColumn/TaskColumn";
 import TaskForm from "./components/taskForm/TaskForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const oldTasks = localStorage.getItem("tasks")
 
 function App() {
 
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState(JSON.parse(oldTasks) || [])
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  },[tasks])
 
   const handleDelete = (taskIndex) => {
     const newTasks = tasks.filter((task, index) => index !== taskIndex)
