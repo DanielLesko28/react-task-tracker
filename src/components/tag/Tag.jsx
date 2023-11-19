@@ -1,15 +1,14 @@
-import React from 'react'
-import './Tag.css'
+import React from "react";
+import "./Tag.css";
 
-const Tag = ({setState, name}) => {
-    const handleTagClick = (selectedTag) => {
-        setState(selectedTag);
-      };
+const Tag = ({ selectedTag, tagName }) => {
   return (
     <div>
-         <button className='tag' onClick={() => handleTagClick(name)}>{name}</button>
+      <button className="tag" onClick={selectedTag}>
+        {tagName}
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default Tag
+export default Tag;
