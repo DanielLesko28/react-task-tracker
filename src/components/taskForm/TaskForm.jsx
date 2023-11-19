@@ -98,26 +98,19 @@ const TaskForm = ({ setTasks }) => {
               <option value="doing">Doing</option>
               <option value="done">Done</option>
             </select>
-            <button type="submit" className="task_submit">
+            <button
+              type="submit"
+              className="task_submit"
+              disabled={taskData.task === ""}
+              style={{
+                backgroundColor: taskData.task === "" && "lightgray",
+                // Add other styles as needed
+              }}
+            >
               + Add
             </button>
           </div>
         </div>
-        {/* <section
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            margin: "1rem 0 1rem 0",
-          }}
-        >
-          <div>{taskData}</div>
-          {/* <button
-            style={{ margin: "0 0 0 1rem" }}
-            onClick={(prev) => setTaskData({ ...prev, tags: [] })}
-          >
-            Clear state
-          </button> */}
-        {/* </section> */}
       </form>
     </header>
   );
