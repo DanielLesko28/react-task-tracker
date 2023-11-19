@@ -7,7 +7,10 @@ function App() {
 
   const [tasks, setTasks] = useState([])
 
-  console.log("tasks", tasks)
+  const handleDelete = (taskIndex) => {
+    const newTasks = tasks.filter((task, index) => index !== taskIndex)
+    setTasks(newTasks)
+  }
 
   return (
    <div className="app">
@@ -16,9 +19,9 @@ function App() {
     <TaskForm setTasks={setTasks} />
     </header>
     <main className="app_main">
-     <TaskColumn title="To do" tasks={tasks} status='todo' />
-     <TaskColumn title="Doing" tasks={tasks} status='doing' />
-     <TaskColumn title="Done" tasks={tasks} status='done' />
+     <TaskColumn title="To do" tasks={tasks} status='todo' handleDelete={handleDelete} />
+     <TaskColumn title="Doing" tasks={tasks} status='doing' handleDelete={handleDelete} />
+     <TaskColumn title="Done" tasks={tasks} status='done' handleDelete={handleDelete} />
     </main>
    </div>
   );

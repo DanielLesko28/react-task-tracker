@@ -2,7 +2,7 @@ import React from "react";
 import "./TaskCard.css";
 import Tag from "../tag/Tag";
 
-const TaskCard = ({ title, tags }) => {
+const TaskCard = ({ title, tags, handleDelete, index }) => {
   return (
     <article className="task_card">
       <p className="task_text">{title}</p>
@@ -12,7 +12,7 @@ const TaskCard = ({ title, tags }) => {
             <Tag key={index} tagName={tag} selected={true} />
           ))}
         </div>
-        <button>Delete</button>
+        <button onClick={() => handleDelete(index)}>Delete</button>
       </div>
     </article>
   );
