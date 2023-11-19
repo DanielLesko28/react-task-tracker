@@ -9,7 +9,18 @@ const TaskForm = () => {
     tags: [],
   });
 
-  const selectTag = () => {};
+  const selectTag = (tag) => {
+    if (taskData.tags.some((item) => item === tag)) {
+      const filteredTags = taskData.tags.filter((item) => item !== tag);
+      setTaskData((prev) => {
+        return { ...prev, tags: filteredTags };
+      });
+    } else {
+      setTaskData((prev) => {
+        return { ...prev, tags: [...prev.tags, tag] };
+      });
+    }
+  };
 
   const handleChange = (e) => {
     //We can rewrite these line with destructuring
@@ -32,6 +43,7 @@ const TaskForm = () => {
     setTaskData({
       task: "",
       status: "todo",
+      tags: taskData.tags,
     });
   };
 
@@ -57,6 +69,7 @@ const TaskForm = () => {
               name="status"
               className="task_status"
               onChange={handleChange}
+              value={taskData.status}
             >
               <option value="todo">To do</option>
               <option value="doing">Doing</option>
@@ -67,24 +80,21 @@ const TaskForm = () => {
             </button>
           </div>
         </div>
-        <section
+        {/* <section
           style={{
             display: "flex",
             justifyContent: "center",
             margin: "1rem 0 1rem 0",
           }}
         >
-          <div>
-            {tag === "HTML" ? (
-              <p style={{ color: "purple" }}>{tag}</p>
-            ) : (
-              <p>{tag}</p>
-            )}
-          </div>
-          <button style={{ margin: "0 0 0 1rem" }} onClick={() => setTag("")}>
+          <div>{taskData}</div>
+          {/* <button
+            style={{ margin: "0 0 0 1rem" }}
+            onClick={(prev) => setTaskData({ ...prev, tags: [] })}
+          >
             Clear state
-          </button>
-        </section>
+          </button> */}
+        {/* </section> */}
       </form>
     </header>
   );
