@@ -19,10 +19,6 @@ const TaskForm = () => {
       <form onSubmit={handleFormSubmit}>
         <input type='text' className='task_input' placeholder='Enter your Task' />
         <div className='task_form_bottom_line'>
-          {/* <button className='tag' onClick={() => handleTagClick('HTML')}>HTML</button>
-          <button className='tag' onClick={() => handleTagClick('CSS')}>CSS</button>
-          <button className='tag' onClick={() => handleTagClick('Javascript')}>Javascript</button>
-          <button className='tag' onClick={() => handleTagClick('React')}>React</button> */}
           <Tag name={'HTML'} setState={setTag} />
           <Tag name={'CSS'} setState={setTag} />
           <Tag name={'Javascript'} setState={setTag} />

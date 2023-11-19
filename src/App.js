@@ -1,4 +1,5 @@
 import "./App.css"
+import TaskCard from "./components/taskCard/TaskCard";
 import TaskForm from "./components/taskForm/TaskForm";
 
 function App() {
@@ -9,9 +10,22 @@ function App() {
     <TaskForm />
     </header>
     <main className="app_main">
-      <section className="task_section">section 1</section>
-      <section className="task_section">section 2</section>
-      <section className="task_section">section 3</section>
+      <section className="task_section">
+      <h1>
+        Todo
+      </h1>
+      <TaskCard />
+      </section>
+      <section className="task_section">  <h1>
+        Doing
+      </h1>
+      <TaskCard /></section>
+      <section className="task_section">
+      <h1>
+        Done
+      </h1>
+      <TaskCard />
+      </section>
     </main>
    </div>
   );
