@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./TaskForm.css";
 import Tag from "../tag/Tag";
 
-const TaskForm = () => {
+const TaskForm = ({ setTasks }) => {
   const [taskData, setTaskData] = useState({
     task: "",
     status: "todo",
@@ -43,15 +43,11 @@ const TaskForm = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(taskData);
-    setTaskData({
-      task: "",
-      status: "todo",
-      tags: taskData.tags,
+    // console.log(taskData);
+    setTasks((prev) => {
+      return [...prev, taskData];
     });
   };
-
-  useEffect(() => {}, [taskData]);
 
   return (
     <header className="task_header">
@@ -59,6 +55,7 @@ const TaskForm = () => {
         <input
           type="text"
           name="task"
+          value={taskData.task}
           className="task_input"
           placeholder="Enter your Task"
           onChange={handleChange}
